@@ -20,7 +20,7 @@ export function Summary() {
                     <p>Saidas</p>
                     <img src={outcomeImg} alt="Saidas" />
                 </header>
-                <strong>R$- 500,00</strong>
+                <strong>- R$500,00</strong>
             </div>
 
             <div className="heghlight-background">

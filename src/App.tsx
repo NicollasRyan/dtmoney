@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState } from "react";
 import Modal from 'react-modal'
 import { Deshboard } from "./Componets/Deshboard"
 import { Header } from "./Componets/Header";
 import { GlobalStyle } from "./styles/global";
+import { NewTrasactionModal } from './Componets/NewTransactionModal'
 
 Modal.setAppElement('#root')
 
@@ -24,12 +25,10 @@ export function App() {
       <Header onOpenNewTransactionModal={handleOpenNewTrasactionModal} />
       <Deshboard />
 
-      <Modal 
-        isOpen={isNewTrasactionModalOpen}
-        onRequestClose={handleCloseNewTrasactionModal}
-                >
-        <h2>Cadastrar transação</h2>
-      </Modal>
+      <NewTrasactionModal 
+          isOpen={isNewTrasactionModalOpen}
+          onRequestClose={handleCloseNewTrasactionModal}
+      />
 
       <GlobalStyle />
     </>

@@ -4,6 +4,8 @@ import { Deshboard } from "./Componets/Deshboard"
 import { Header } from "./Componets/Header";
 import { GlobalStyle } from "./styles/global";
 
+Modal.setAppElement('#root')
+
 
 export function App() {
   const [isNewTrasactionModalOpen, setIsNewTrasactionModalOpen] = useState(false)

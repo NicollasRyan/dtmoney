@@ -24,11 +24,11 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html {
-        @nedia (max-width: 1080px) {
+        @media (max-width: 1080px) {
             font-size: 93.75%;
         }
 
-        @nedia (max-width: 720px){
+        @media (max-width: 720px){
             font-size: 87.5%;
         }
     }

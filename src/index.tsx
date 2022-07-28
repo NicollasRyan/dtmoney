@@ -2,11 +2,32 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createServer, Model } from 'miragejs';
 import { App } from './App';
-import { request } from 'http';
-
 createServer({
   models: {
     transaction: Model,
+  },
+
+  seeds(server) {
+    server.db.loadData({
+      transactions: [
+        {
+          id: 1,
+          title: 'freelance de website',
+          type: 'deposit',
+          category: 'Dev',
+          amount: 6000,
+          createAt: new Date('2022-02-12 10:30:38'),
+        },
+        {
+          id: 2,
+          title: 'Aluguel',
+          type: 'withdraw',
+          category: 'casa',
+          amount: 1100,
+          createAt: new Date('2022-02-20 11:01:47'),
+        }
+      ],
+    })
   },
 
   routes() {

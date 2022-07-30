@@ -11,6 +11,23 @@ export function Summary() {
 
     console.log(transactions)
     
+    const summary = transactions.reduce((acc, transaction) => {
+        if (transaction.type === 'deposit') {
+            acc.deposits += transaction.amount;
+            acc.total += transaction.amount;
+        } else {
+
+            console.log(transaction.amount)
+            acc.withdraws += transaction.amount;
+            acc.total -= transaction.amount;
+        }
+
+        return acc;
+    }, {
+        deposits: 0, 
+        withdraws: 0,
+        total: 0
+    })
 
     return (
         <Conatiner>
@@ -19,7 +36,12 @@ export function Summary() {
                     <p>Entradas</p>
                     <img src={incomeImg} alt="Entradas" />
                 </header>
-                <strong>R$1000,00</strong>
+                <strong>
+                    {new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(summary.deposits)}
+                </strong>
             </div>
 
             <div>
@@ -27,7 +49,13 @@ export function Summary() {
                     <p>Saidas</p>
                     <img src={outcomeImg} alt="Saidas" />
                 </header>
-                <strong>- R$500,00</strong>
+                <strong>
+                    -
+                    {new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(summary.withdraws)}
+                </strong>
             </div>
 
             <div className="heghlight-background">
@@ -35,7 +63,12 @@ export function Summary() {
                     <p>Total</p>
                     <img src={TotalImg} alt="Total" />
                 </header>
-                <strong>R$500,00</strong>
+                <strong>
+                    {new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(summary.total)}
+                </strong>
             </div>
         </Conatiner>
     )

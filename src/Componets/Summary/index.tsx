@@ -1,7 +1,8 @@
+import { useTransactions } from '../../hooks/useTransactions';
+
 import incomeImg from '../../assets/Entradas.svg'
 import outcomeImg from '../../assets/Saídas.svg'
 import TotalImg from '../../assets/Total.svg'
-import { useTransactions } from '../../hooks/useTransactions';
 
 import { Conatiner } from "./styles";
 
